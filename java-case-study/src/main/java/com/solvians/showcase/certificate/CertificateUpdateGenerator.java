@@ -23,11 +23,11 @@ public class CertificateUpdateGenerator {
     // TODO: Optimize thread pool sizing.
     // have a validation to verify For cPu bound tasks and io bound to avoid limit the size of thraeds
 
-    public Stream<CertificateUpdate> generateQuotes() {
+    public Stream<String> generateQuotes() {
         ExecutorService executor = Executors.newFixedThreadPool(threads);
         try {
-            List<Future<CertificateUpdate>> futures = IntStream.range(0, quotes)
-                    .mapToObj(i -> executor.submit(service::createCertificateUpdate))
+            List<Future<String>> futures = IntStream.range(0, quotes)
+                    .mapToObj(i -> executor.submit(new CertificateUpdateTask(service)))
                     .collect(Collectors.toList());
 
             return futures.stream().map(f -> {
