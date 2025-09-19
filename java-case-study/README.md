@@ -3,6 +3,11 @@
 2. Solid principles in coding
 3. Extensive test cases
 
+# What could have done if additional time given
+1. Sonarqube to show test case code coverage
+2. Performance & scalability test (e.g 1M certificate updates)
+3. More documentation (UML)
+
 # Solvians Java Case Study
 
 ## Introduction – Feed Generator
